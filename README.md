@@ -1,1 +1,1 @@
-# REACT-Sample_Drum_Machine
+# REACT-Simple_Drum_Machine
