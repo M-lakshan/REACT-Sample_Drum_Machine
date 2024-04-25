@@ -1,0 +1,43 @@
+#drum-machine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFF;
+  background-color: #411557;
+  padding: 15px;
+  border-radius: 7px;
+      
+  #display {
+
+  }
+
+  #DrumPad {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    height: 300px;
+    width: 300px;
+    max-height: 720px;
+    max-width: 720px;
+
+    .drum-pad {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background: #580485;
+      font-size: 26px;
+      color: #C29717;
+      margin: 2px;
+      padding: 15px;
+    }
+  }
+
+  #Controls {
+
+  }
+}
