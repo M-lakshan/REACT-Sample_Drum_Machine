@@ -110,13 +110,15 @@ class DrumPad extends React.Component {
     let audio_set = (this.props.ctrls["bank"]) ? this.state.bank_on["audios"] : this.state.bank_off["audios"];
 
     return (
-      <div id="DrumPad">{
+      <div id="DrumPad" className={this.props.ctrls["pwr_on"] ? "power_on" : ""}>{
         audio_set.map((_as,_key) =>
           <Pad 
             key={_key}
+            _cls={this.props.ctrls["bank"] ? "drum-pad bnk_on" : "drum-pad"}
             _name={_as["pad_name"]} 
             _audio={_as["pad_audio"]}
-            _id={_as["pad_id"]}  
+            _id={_as["pad_id"]}
+            letSoundOut={(e) => this.props.onStateChanger(e)}
           />
         )
       }</div>

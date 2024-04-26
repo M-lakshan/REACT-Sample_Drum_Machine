@@ -20,21 +20,37 @@ class App extends React.Component {
   }
 
   setCtrlSettings(val) {
-    this.setState({...this.state, cntrls: val});
+    try {
+      this.setState({...this.state, cntrls: val});
+    } catch (ex) {
+      console.log(ex);
+    }
   }
 
   setPadSelections(val) {
-    this.setState({...this.state, cur_sclt: val});
-    setTimeout(() => {
-      this.setState({...this.state, cur_sclt: ""});
-    }, 1200);
+    try {
+      setTimeout(() => {
+        document.getElementById(val).querySelector('audio').volume = this.state.cntrls["volume"]/100;
+        document.getElementById(val).querySelector('audio').play();
+      }, 10);
+      setTimeout(() => {
+        document.getElementById(val).classList.add("tapped");
+        this.setState({...this.state, cur_sclt: val});
+      }, 20);
+      setTimeout(() => {
+        document.getElementById(val).classList.remove("tapped");
+        this.setState({...this.state, cur_sclt: ""});
+      }, 800);
+    } catch (ex) {
+      console.log(ex);
+    }
   }
 
   render() {
     return (
       <div id="drum-machine" className="App">
-        <Display scrn={this.state.cur_sclt}/>        
         <DrumPad ctrls={this.state.cntrls} onStateChanger={(e) => this.setPadSelections(e)}/>        
+        <Display scrn={this.state}/>        
         <Controls ctrls={this.state.cntrls} onStateChanger={(e) => this.setCtrlSettings(e)}/>        
       </div>
     );

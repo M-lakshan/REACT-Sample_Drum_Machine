@@ -2,6 +2,17 @@ import React from 'react';
 
 class Controls extends React.Component {
 
+  quickNotify(val) {
+    try {
+      document.getElementById("display").querySelector('h3').innerHTML = `<span class="space"><i></i>${val}<i></i></span>`;
+      setTimeout(() => {
+        document.getElementById("display").querySelector('h3').innerHTML = "";
+      }, 800);
+    } catch (ex) {
+      console.log(ex);
+    }
+  }
+
   setDedicatedCtrls(type,state) {
     let parse_obj = this.props.ctrls;
     
@@ -30,22 +41,33 @@ class Controls extends React.Component {
     return (
       <div id="Controls">
         <input type="checkbox" name="pwr" id="pwr" 
-          onChange={(e) => this.props.setCtrlSettings(this.setDedicatedCtrls("pwr",e.currentTarget.checked))} hidden/>
+          onChange={(e) => this.props.onStateChanger(this.setDedicatedCtrls("pwr",e.currentTarget.checked))} hidden/>
         <input type="checkbox" name="bank" id="bank" 
-          onChange={(e) => this.props.setCtrlSettings(this.setDedicatedCtrls("bank",e.currentTarget.checked))} hidden/>
-        <label htmlFor="pwr" className="btn_pwr">
-          <span id="pwr_ctrl"><i className="fa-solid fa-circle"></i></span>
-        </label>
-        <label htmlFor="btn_bank" className="btn_bank">
-          <span id="bank_ctrl"><i className="fa-solid fa-circle"></i></span>
-        </label>
+          onChange={(e) => this.props.onStateChanger(this.setDedicatedCtrls("bank",e.currentTarget.checked))}
+          onClick={() => setTimeout(this.quickNotify("sounds changed"), 200)} hidden/>
+        <p className="btn_pwr">power&nbsp;
+          <label htmlFor="pwr">
+            <span id="pwr_ctrl"><i className="fa-solid fa-circle"></i></span>
+          </label>
+        </p>
+        <p className={this.props.ctrls["pwr_on"] ? "btn_bank" : "btn_bank deactive"}>bank&nbsp;
+          <label htmlFor="bank">
+            <span id="bank_ctrl"><i className="fa-solid fa-circle"></i></span>
+          </label>
+        </p>
+        <hr className="hrs hr_i"/>
+        <hr className="hrs hr_ii"/>
+        <p className="volume_tab">volume&nbsp;
+          {(!this.props.ctrls["pwr_on"]) ? <i className="fa-solid fa-volume-xmark"></i> :
+          <span className={this.props.ctrls["volume"]===0 ? "vol_lvl" : "vol_lvl active"}>
+            {this.props.ctrls["volume"]}
+          <i>%</i></span>}
+        </p>
         <input type="range" name="volume" id="volume"
-          onChange={(e) => this.props.setCtrlSettings(this.setDedicatedCtrls("vol",e.currentTarget.value))} hidden/>
-        <label className="volume_bar">
-          <span id="volume_covered"></span>
-          <span id="volume_ctrl"><i className="fa-solid fa-circle"></i></span>
-          <span id="volume_empty"></span>
-        </label>
+          className={this.props.ctrls["pwr_on"] ? "" : "deactive"}
+          onChange={(e) => this.props.onStateChanger(this.setDedicatedCtrls("vol",e.currentTarget.value))}
+          value={this.props.ctrls["volume"]}  
+        />
       </div>
     );
   }
