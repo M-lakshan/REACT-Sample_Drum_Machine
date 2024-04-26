@@ -8,22 +8,22 @@ class DrumPad extends React.Component {
       bank_off: {
         audios: [
           {
-            pad_name: "Heater 1",
+            pad_name: "Heater-1",
             pad_id: "Q",
             pad_audio: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
           },
           {
-            pad_name: "Heater 2",
+            pad_name: "Heater-2",
             pad_id: "W",
             pad_audio: "https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"
           },
           {
-            pad_name: "Heater 3",
+            pad_name: "Heater-3",
             pad_id: "E",
             pad_audio: "https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"
           },
           {
-            pad_name: "Heater 4",
+            pad_name: "Heater-4",
             pad_id: "A",
             pad_audio: "https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"
           },
@@ -57,17 +57,17 @@ class DrumPad extends React.Component {
       bank_on: {
         audios: [
           {
-            pad_name: "Chord 1",
+            pad_name: "Chord-1",
             pad_id: "Q",
             pad_audio: "https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3"
           },
           {
-            pad_name: "Chord 2",
+            pad_name: "Chord-2",
             pad_id: "W",
             pad_audio: "https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3"
           },
           {
-            pad_name: "Chord 3",
+            pad_name: "Chord-3",
             pad_id: "E",
             pad_audio: "https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3"
           },

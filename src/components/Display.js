@@ -16,8 +16,8 @@ class Display extends React.Component {
 
   render() {
     return (
-      <div id="display" className={this.props.scrn["cntrls"]["pwr_on"] ? "active" : ""}>
-        <h3>{this.displayAlert(this.props.scrn["cntrls"]["pwr_on"])}</h3>
+      <div id="Display" className={this.props.scrn["cntrls"]["pwr_on"] ? "active" : ""}>
+        <h3 id="display">{this.displayAlert(this.props.scrn["cntrls"]["pwr_on"])}</h3>
       </div>
     );
   }

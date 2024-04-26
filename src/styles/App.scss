@@ -71,7 +71,7 @@
     }
   }
 
-  #display {
+  #Display {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,7 +108,7 @@
     }
   }
 
-  #display.active {
+  #Display.active {
 
     h3 {
       background: #D8B755;
@@ -150,7 +150,7 @@
         width: 100%;
 
         .fa-circle {
-          transform: translateX(3px);
+          transform: translate(3px,1px);
           color: #580485;
           font-size: 18px;
           transition: ease-out 200ms;
@@ -179,7 +179,7 @@
       span {
 
         .fa-circle {
-          transform: translateX(22px);
+          transform: translate(22px, 1px);
           color: #029F5C;
           transition: ease-in 200ms;
         }

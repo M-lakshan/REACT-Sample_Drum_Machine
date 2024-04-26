@@ -62,7 +62,7 @@
   transition: 200ms ease-in-out;
   box-shadow: none;
 }
-#drum-machine #display {
+#drum-machine #Display {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,7 +72,7 @@
   width: 100%;
   padding: 10px 10px 5px;
 }
-#drum-machine #display h3 {
+#drum-machine #Display h3 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,15 +88,15 @@
   border-radius: 5px;
   transition: 200ms ease-out;
 }
-#drum-machine #display h3 span.space {
+#drum-machine #Display h3 span.space {
   padding: 0px 7px;
 }
-#drum-machine #display h3 span.space i {
+#drum-machine #Display h3 span.space i {
   display: inline-block;
   height: 10px;
   width: 5px;
 }
-#drum-machine #display.active h3 {
+#drum-machine #Display.active h3 {
   background: #D8B755;
   color: #029F5C;
   transition: 200ms ease-in;
@@ -132,7 +132,7 @@
   width: 100%;
 }
 #drum-machine #Controls .btn_pwr > label span .fa-circle, #drum-machine #Controls .btn_bank > label span .fa-circle {
-  transform: translateX(3px);
+  transform: translate(3px, 1px);
   color: #580485;
   font-size: 18px;
   transition: ease-out 200ms;
@@ -150,7 +150,7 @@
   background: #D8B755;
 }
 #drum-machine #Controls #pwr:checked ~ .btn_pwr > label span .fa-circle, #drum-machine #Controls #bank:checked ~ .btn_bank > label span .fa-circle {
-  transform: translateX(22px);
+  transform: translate(22px, 1px);
   color: #029F5C;
   transition: ease-in 200ms;
 }
