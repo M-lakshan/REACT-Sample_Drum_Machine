@@ -105,6 +105,16 @@ class DrumPad extends React.Component {
       }
     }
   }
+  
+  componentDidMount() {
+    document.querySelectorAll(".drum-pad").forEach(pad => {
+      pad.addEventListener('click',() => {
+        if(this.props.ctrls["pwr_on"]) {
+          pad.querySelector('audio').play();
+        }
+      });
+    });
+  }
 
   render() {
     let audio_set = (this.props.ctrls["bank"]) ? this.state.bank_on["audios"] : this.state.bank_off["audios"];

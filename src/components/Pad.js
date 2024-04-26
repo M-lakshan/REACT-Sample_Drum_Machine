@@ -9,8 +9,8 @@ class Pad extends React.Component {
         className={this.props._cls} 
         onClick={(e) => this.props.letSoundOut(e.currentTarget.id)}
       >
-        <h4>{this.props._id}</h4>
         <audio id={this.props._id} className="clip" src={this.props._audio}></audio>
+        <h4>{this.props._id}</h4>
       </div>
     );
   }

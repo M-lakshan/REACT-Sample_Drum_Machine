@@ -29,10 +29,7 @@ class App extends React.Component {
 
   setPadSelections(val) {
     try {
-      setTimeout(() => {
-        document.getElementById(val).querySelector('audio').volume = this.state.cntrls["volume"]/100;
-        document.getElementById(val).querySelector('audio').play();
-      }, 10);
+      setTimeout(() => document.getElementById(val).querySelector('audio').volume = this.state.cntrls["volume"]/100, 10);
       setTimeout(() => {
         document.getElementById(val).classList.add("tapped");
         this.setState({...this.state, cur_sclt: val});

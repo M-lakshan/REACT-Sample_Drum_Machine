@@ -4,7 +4,7 @@ class Controls extends React.Component {
 
   quickNotify(val) {
     try {
-      document.getElementById("display").querySelector('h3').innerHTML = `<span class="space"><i></i>${val}<i></i></span>`;
+      document.getElementById("display").querySelector('h3').innerHTML = `<span class="space">&nbsp;${val.toString()}&nbsp;</span>`;
       setTimeout(() => {
         document.getElementById("display").querySelector('h3').innerHTML = "";
       }, 800);
@@ -43,8 +43,11 @@ class Controls extends React.Component {
         <input type="checkbox" name="pwr" id="pwr" 
           onChange={(e) => this.props.onStateChanger(this.setDedicatedCtrls("pwr",e.currentTarget.checked))} hidden/>
         <input type="checkbox" name="bank" id="bank" 
-          onChange={(e) => this.props.onStateChanger(this.setDedicatedCtrls("bank",e.currentTarget.checked))}
-          onClick={() => setTimeout(this.quickNotify("sounds changed"), 200)} hidden/>
+          onChange={(e) => {
+            setTimeout(this.quickNotify("sounds changed"), 200);
+            this.props.onStateChanger(this.setDedicatedCtrls("bank",e.currentTarget.checked));
+          }}
+        hidden/>
         <p className="btn_pwr">power&nbsp;
           <label htmlFor="pwr">
             <span id="pwr_ctrl"><i className="fa-solid fa-circle"></i></span>
